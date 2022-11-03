@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+	<title>Nihonggo Jugyou - 日本語授業 | Materi Pembelajaran</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+
+	<!-- Favicons -->
+	<link href="assets/images/logo.png" rel="icon">
+	<link href="assets/images/logo.png" rel="apple-touch-icon">
+
+	<!-- Google Fonts -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+		rel="stylesheet">
+
+	<!-- Vendor CSS Files -->
+	<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+	<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+	<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+	<link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+	<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+	<!-- Template Main CSS File -->
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/css/banner.css" media="screen" />
+	<style>
+		body {
+			text-align: center;
+		}
+
+		.timer {
+			display: flex;
+			margin-left: 100px;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			width: 100%;
+		}
+
+		.question {
+			font-size: 30px;
+			margin-bottom: 10px;
+		}
+
+		.answers {
+			margin-bottom: 20px;
+			text-align: left;
+			display: inline-block;
+		}
+
+		.answers label {
+			display: block;
+			margin-bottom: 15px;
+		}
+
+		.slide {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			z-index: 2;
+			opacity: 0;
+			transition: opacity 0.3s;
+		}
+
+		.active-slide {
+			opacity: 2;
+			z-index: 3;
+		}
+
+		.quiz-container {
+			position: relative;
+			height: 200px;
+		}
+		.btn-start-quiz{
+			background: rgb(14, 14, 71);
+			color: white;
+			width: 50%;
+			height: 70px;
+			font-size: 28px;
+			border-radius: 30px;
+			transition: 0.3s;
+		}
+		.btn-start-quiz:hover{
+			transition: 0.3s;
+			background-color: orangered;
+			color: aliceblue;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top d-flex align-items-center">
+		<div class="container d-flex align-items-center justify-content-between">
+
+			<div class="logo">
+				<!-- <h1><a href="index.html">Ninjo</a></h1> -->
+				<!-- Uncomment below if you prefer to use an image logo -->
+				<a href="index.html"><img src="assets/images/logo.png" alt="" class="img-fluid"></a>
+			</div>
+
+			<nav id="navbar" class="navbar">
+				<ul>
+					<li><a class="nav-link scrollto" href="index.html#hero">Home</a></li>
+					<li><a class="nav-link scrollto" href="index.html#about">About</a></li>
+					<li><a class="nav-link scrollto" href="index.html#team">Team</a></li>
+					<!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li> -->
+					<li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
+					<li><a href="materi-pembelajaran.html" class="nav-link">Materi Pembelajaran</a></li>
+					<li><a class="getstarted scrollto " href="quiz.html">Quiz</a></li>
+				</ul>
+				<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav><!-- .navbar -->
+
+		</div>
+	</header><!-- End Header -->
+
+
+	<main id="main" style="margin-top: 100px">
+
+		<section id="portfolio" class="portfolio">
+			<div class="container">
+
+				<div class="section-title" data-aos="fade-right">
+					<h2>漢字を練習しましょう!!!</h2>
+					<p>Quiz Kanji berupa pilihan ganda untuk melatih kemampuanmu!!!</p>
+				</div>
+
+				<hr>
+				<div id="quiz-section" class="d-flex justify-content-center">
+					<button class="btn btn-start-quiz" onclick="showTimer()">Mulai Quiz</button>
+				</div>
+
+				<div id="quiz-field" class="d-none">
+					<div class="quiz-container">
+						<div id="quiz"></div>
+					</div>
+					<button id="previous" class="btn btn-secondary">Previous Question</button>
+					<button id="next" class="btn btn-primary">Next Question</button>
+					<button id="submit" class="btn btn-success">Submit Quiz</button>
+					<div id="results"></div>
+	
+				</div>
+
+			</div>
+
+		</section>
+	</main><!-- End #main -->
+
+	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+			class="bi bi-arrow-up-short"></i></a>
+
+	<!-- Vendor JS Files -->
+	<script src="vendor/jquery/jquery.js"></script>
+	<script src="assets/vendor/aos/aos.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="assets/vendor/php-email-form/validate.js"></script>
+	<script src="assets/vendor/purecounter/purecounter.js"></script>
+	<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+	<!-- Template Main JS File -->
+	<script src="assets/js/main.js"></script>
+
+	<script src="assets/include/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+	<script src="assets/include/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+	<script src="assets/include/rs-plugin/js/extensions/revolution.extension.actions.min.js"></script>
+	<script src="assets/include/rs-plugin/js/extensions/revolution.extension.carousel.min.js"></script>
+	<script src="assets/include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js"></script>
+	<script src="assets/include/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js"></script>
+	<script src="assets/include/rs-plugin/js/extensions/revolution.extension.migration.min.js"></script>
+	<script src="assets/include/rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
+	<script src="assets/include/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
+	<script src="assets/include/rs-plugin/js/extensions/revolution.extension.slideanims.min.js"></script>
+	<script src="assets/include/rs-plugin/js/extensions/revolution.extension.video.min.js"></script>
+
+	<!-- ADD-ONS JS FILES -->
+	<script src="assets/include/rs-plugin/js/addons/revolution.addon.particles.min.js"></script>
+	<script>
+		function showTimer() {
+			$("#quiz-section").empty();
+			$("#quiz-section").append(`<div class="timer">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 300 300" preserveAspectRatio="none" style="width:300; height:300; top:0; left:0;">
+				<circle cx="100" cy="100" r="57" id="pink-halo" fill="none" stroke="#fd256e" stroke-width="10" stroke-dasharray="0, 361" transform="rotate(-90,100,100)" />
+				<text id="myTimer" text-anchor="middle" x="100" y="110" style="font-size: 40px; fill:#343434;"></text>
+			</svg>
+			</div>`);
+			var circle = document.getElementById('pink-halo');
+			var myTimer = document.getElementById('myTimer');
+			var t = 5;
+			var interval = 30;
+			var angle = 0;
+			var angle_increment = 360 / t;
+			var intervalCounter = 0;
+
+			window.timer = window.setInterval(function () {
+				intervalCounter++;
+				circle.setAttribute("stroke-dasharray", angle + ", 361");
+
+				myTimer.innerHTML = t - parseInt((angle / 360) * t);
+
+				if (angle >= 360) {
+					window.clearInterval(window.timer);
+					$(".timer").addClass("d-none");
+					$("#quiz-section").empty();
+					$("#quiz-field").removeClass('d-none');
+				}
+
+				angle += angle_increment / (1000 / interval);
+			}.bind(this), interval);
+		}
+	</script>
+	<script>
+		(function () {
+			const myQuestions = [{
+					question: "How many fingers are on the foot of a man?",
+					answers: {
+						a: "one",
+						b: "Five",
+						c: "Three"
+					},
+					correctAnswer: "c"
+				},
+				{
+					question: "Whose face was said to have launched 1000 ships?",
+					answers: {
+						a: "Rowan Atkinson",
+						b: "Barbara Mori",
+						c: "Helen of Troy"
+					},
+					correctAnswer: "c"
+				},
+				{
+					question: "Water boils at 212 degrees on which temperature scale?",
+					answers: {
+						a: "Kelvin",
+						b: "Fahrenheit",
+						c: "Celsius"
+					},
+					correctAnswer: "b"
+				},
+				{
+					question: "What is the Italian word for pie?",
+					answers: {
+						a: "Pie",
+						b: "Lasagna",
+						c: "Pizza"
+					},
+					correctAnswer: "c"
+				},
+				{
+					question: "What was Marilyn Monroe's natural hair colour?",
+					answers: {
+						a: "Ginger",
+						b: "Blue",
+						c: "Brown"
+					},
+					correctAnswer: "a"
+				},
+				{
+					question: "Which two metals is pewter made from?",
+					answers: {
+						a: "Copper and Bronze",
+						b: "Tin and lead.",
+						c: "Zinc and gold"
+					},
+					correctAnswer: "b"
+				},
+				{
+					question: "What takes place in Hong Kong's Happy Valley?",
+					answers: {
+						a: "Monkey racing",
+						b: "Dog racing.",
+						c: "Horse racing"
+					},
+					correctAnswer: "c"
+				},
+				{
+					question: "Which country does the sport of pelato come from?",
+					answers: {
+						a: "Portugal",
+						b: "Spain",
+						c: "Italy"
+					},
+					correctAnswer: "b"
+				},
+				{
+					question: "How many sides, in total, would three triangles and three rectangles have?",
+					answers: {
+						a: "21",
+						b: "19",
+						c: "12"
+					},
+					correctAnswer: "a"
+				},
+				{
+					question: "Who invented the bikini?",
+					answers: {
+						a: "Gianni Versace",
+						b: "Louis Reard.",
+						c: "Dolce Gabbana"
+					},
+					correctAnswer: "b"
+				}
+			];
+
+			function buildQuiz() {
+				// we'll need a place to store the HTML output
+				const output = [];
+
+				// for each question...
+				myQuestions.forEach((currentQuestion, questionNumber) => {
+					// we'll want to store the list of answer choices
+					const answers = [];
+
+					// and for each available answer...
+					for (letter in currentQuestion.answers) {
+						// ...add an HTML radio button
+						answers.push(
+							`<label>
+             <input type="radio" class="form-check-input" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+           </label>`
+						);
+					}
+
+					// add this question and its answers to the output
+					output.push(
+						`<div class="slide">
+           <div class="question"> ${currentQuestion.question} </div>
+           <div class="answers"> ${answers.join("")} </div>
+         </div>`
+					);
+				});
+
+				// finally combine our output list into one string of HTML and put it on the page
+				quizContainer.innerHTML = output.join("");
+			}
+
+			function showResults() {
+				// gather answer containers from our quiz
+				const answerContainers = quizContainer.querySelectorAll(".answers");
+
+				// keep track of user's answers
+				let numCorrect = 0;
+
+				// for each question...
+				myQuestions.forEach((currentQuestion, questionNumber) => {
+					// find selected answer
+					const answerContainer = answerContainers[questionNumber];
+					const selector = `input[name=question${questionNumber}]:checked`;
+					const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+					// if answer is correct
+					if (userAnswer === currentQuestion.correctAnswer) {
+						// add to the number of correct answers
+						numCorrect++;
+
+						// color the answers green
+						answerContainers[questionNumber].style.color = "lightgreen";
+					} else {
+						// if answer is wrong or blank
+						// color the answers red
+						answerContainers[questionNumber].style.color = "red";
+					}
+				});
+
+				// show number of correct answers out of total
+				resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+			}
+
+			function showSlide(n) {
+				slides[currentSlide].classList.remove("active-slide");
+				slides[n].classList.add("active-slide");
+				currentSlide = n;
+
+				if (currentSlide === 0) {
+					previousButton.style.display = "none";
+				} else {
+					previousButton.style.display = "inline-block";
+				}
+
+				if (currentSlide === slides.length - 1) {
+					nextButton.style.display = "none";
+					submitButton.style.display = "inline-block";
+				} else {
+					nextButton.style.display = "inline-block";
+					submitButton.style.display = "none";
+				}
+			}
+
+			function showNextSlide() {
+				showSlide(currentSlide + 1);
+			}
+
+			function showPreviousSlide() {
+				showSlide(currentSlide - 1);
+			}
+
+			const quizContainer = document.getElementById("quiz");
+			const resultsContainer = document.getElementById("results");
+			const submitButton = document.getElementById("submit");
+
+			// display quiz right away
+			buildQuiz();
+
+			const previousButton = document.getElementById("previous");
+			const nextButton = document.getElementById("next");
+			const slides = document.querySelectorAll(".slide");
+			let currentSlide = 0;
+
+			showSlide(0);
+
+			// on submit, show results
+			submitButton.addEventListener("click", showResults);
+			previousButton.addEventListener("click", showPreviousSlide);
+			nextButton.addEventListener("click", showNextSlide);
+		})();
+	</script>
+</body>
+
+</html>
