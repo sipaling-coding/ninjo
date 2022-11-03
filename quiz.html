@@ -93,6 +93,11 @@
 			background-color: orangered;
 			color: aliceblue;
 		}
+		@media(max-width:992px){
+			.button-field{
+				margin-top: 100px;
+			}
+		}
 	</style>
 </head>
 
@@ -160,10 +165,12 @@
 					<div class="quiz-container">
 						<div id="quiz"></div>
 					</div>
-					<button id="previous" class="btn btn-secondary">Previous Question</button>
-					<button id="next" class="btn btn-primary">Next Question</button>
-					<button id="submit" class="btn btn-success">Submit Quiz</button>
-					<div id="results"></div>
+					<div class="button-field">
+						<button id="previous" class="btn btn-secondary">Previous Question</button>
+						<button id="next" class="btn btn-primary">Next Question</button>
+						<button id="submit" class="btn btn-success">Submit Quiz</button>
+						<div id="results"></div>
+					</div>
 	
 				</div>
 
