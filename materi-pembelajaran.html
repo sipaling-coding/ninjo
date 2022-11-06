@@ -369,119 +369,24 @@
 					<div class="col-lg-12 d-flex justify-content-center">
 						<ul id="portfolio-flters">
 							<li data-filter="*" class="filter-active">Show All Kanji</li>
-							<li data-filter=".kanji-ie">家</li>
-							<li data-filter=".kanji-muro">室</li>
-							<li data-filter=".kanji-saki">先</li>
-							<li data-filter=".kanji-kubi">首</li>
+							<li data-filter=".kanji-yoai">弱</li>
+							<li data-filter=".kanji-tsuyoi">強</li>
+							<li data-filter=".kanji-omoi">重</li>
+							<li data-filter=".kanji-karui">軽</li>
+							<li data-filter=".kanji-furui">古</li>
+							<li data-filter=".kanji-wakai">若</li>
+							<li data-filter=".kanji-ugoku">動</li>
+							<li data-filter=".kanji-tomaru">止</li>
+							<li data-filter=".kanji-deru">出</li>
+							<li data-filter=".kanji-hairu">入</li>
 						</ul>
 					</div>
 				</div>
 
 				<hr>
 
-				<div class="row portfolio-container mt-5" data-aos="fade-up" data-aos-delay="400">
-
-					<!-- Kanji Rumah -->
-					<div class="col-lg-12 col-md-12 mt-5 portfolio-item kanji-ie">
-						<h1 class="text-center mb-5">Kanji 家 (Rumah)</h1>
-						<div class="row">
-							<div class="col-md-5 img-kanji">
-								<img src="assets/images/kanji/kanji-ie.gif" class="w-100 img-fluid" alt="">
-								<hr style="background-color:rgb(14, 14, 71);">
-								<h4 class="text-center">10 Langkah Penulisan</h4>
-							</div>
-							<div class="col-md-7 mt-3">
-								<table class="table table-bordered table-hover">
-									<thead>
-										<tr class="align-middle"
-											style="height: 70px; background-color: rgb(14, 14, 71); color: white;">
-											<th scope="col" colspan="4">Penjelasan Kanji</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr class="align-middle" style="height: 70px;">
-											<th scope="row">1</th>
-											<th>Kunyoumi</th>
-											<td colspan="2">
-												いえ、や、うち
-											</td>
-										</tr>
-										<tr class="align-middle" style="height: 70px;">
-											<th scope="row">2</th>
-											<th>Onyoumi</th>
-											<td colspan="2">カ、ケ</td>
-										</tr>
-										<tr class="align-middle" style="height: 70px;">
-											<th scope="row">3</th>
-											<th colspan="2">Contoh Kosakata</th>
-											<td>
-												<ul>
-													<li>家族 (Kazoku) - Keluarga</li>
-													<li>大家 (Ooya) - Tuan Rumah</li>
-												</ul>
-											</td>
-										</tr>
-										<tr class="align-middle" style="height: 70px;">
-											<th>Filosofi</th>
-											<td colspan="3"></td>
-										</tr>
-									</tbody>
-								</table>
-						
-							</div>
-						</div>
-					</div>
-
-					<!-- Kanji Saki (Duluan) -->
-					<div class="col-lg-12 col-md-12 mt-5 portfolio-item kanji-saki">
-						<h1 class="text-center mb-5">Kanji 先 (Sebelumnya)</h1>
-						<div class="row">
-							<div class="col-md-5 img-kanji">
-								<img src="assets/images/kanji/kanji-saki.gif" class="w-100 img-fluid" alt="">
-								<hr style="background-color:rgb(14, 14, 71);">
-								<h4 class="text-center">6 Langkah Penulisan</h4>
-							</div>
-							<div class="col-md-7 mt-3">
-								<table class="table table-bordered table-hover">
-									<thead>
-										<tr class="align-middle"
-											style="height: 70px; background-color: rgb(14, 14, 71); color: white;">
-											<th scope="col" colspan="4">Penjelasan Kanji</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr class="align-middle" style="height: 70px;">
-											<th scope="row">1</th>
-											<th>Kunyoumi</th>
-											<td colspan="2">
-												いえ、や、うち
-											</td>
-										</tr>
-										<tr class="align-middle" style="height: 70px;">
-											<th scope="row">2</th>
-											<th>Onyoumi</th>
-											<td colspan="2">カ、ケ</td>
-										</tr>
-										<tr class="align-middle" style="height: 70px;">
-											<th scope="row">3</th>
-											<th colspan="2">Contoh Kosakata</th>
-											<td>
-												<ul>
-													<li>家族 (Kazoku) - Keluarga</li>
-													<li>大家 (Ooya) - Tuan Rumah</li>
-												</ul>
-											</td>
-										</tr>
-										<tr class="align-middle" style="height: 70px;">
-											<th>Filosofi</th>
-											<td colspan="3"></td>
-										</tr>
-									</tbody>
-								</table>
-						
-							</div>
-						</div>
-					</div>
+				<div class="row portfolio-container mt-5" data-aos="fade-up" id="kanji-content" data-aos-delay="400">
+					<!-- Parsing content with jquery -->
 
 				</div>
 			</div>
@@ -568,7 +473,68 @@
 
 	<!-- ADD-ONS JS FILES -->
 	<script src="assets/include/rs-plugin/js/addons/revolution.addon.particles.min.js"></script>
-
+	<script>
+		var data = [
+			['kanji-yoai', 'Kanji 弱 (Lemah)', 'kanji-yoai.gif', '10 Langkah Penulisan', 'よわ.い、よわ.る、よわ.まる、よわめる', 'ジャク', '弱点 (Jyakuten) - Kelemahan <br> 弱い物 (Yowaimono) - sesuatu yang lemah', 'yoai.jfif'],
+			['kanji-tsuyoi', 'Kanji 強 (Kuat)', 'kanji-tsuyoi.gif', '11 Langkah Penulisan', 'つよ.い、し.いる、こわ.い', 'キョウ', '強火 (Tsuyohi) - Api yang Kuat、勉強 (Benkyou) - Belajar', 'tsuyoi.jfif'],
+		];
+		
+		$( document ).ready(function() {
+			Object.keys(data).forEach(function (key) {
+				$("#kanji-content").append(`
+				<div class="col-lg-12 col-md-12 mt-5 portfolio-item ${data[key][0]}">
+						<h1 class="text-center mb-5">${data[key][1]}</h1>
+						<div class="row">
+							<div class="col-md-5 img-kanji">
+								<img src="assets/images/kanji/${data[key][2]}" class="w-100 img-fluid" alt="">
+								<hr style="background-color:rgb(14, 14, 71);">
+								<h4 class="text-center">${data[key][3]}</h4>
+							</div>
+							<div class="col-md-7 mt-3">
+								<table class="table table-bordered table-hover">
+									<thead>
+										<tr class="align-middle"
+											style="height: 70px; background-color: rgb(14, 14, 71); color: white;">
+											<th scope="col" colspan="4">Penjelasan Kanji</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="align-middle" style="height: 70px;">
+											<th scope="row">1</th>
+											<th>Kunyoumi</th>
+											<td colspan="2">
+												${data[key][4]}
+											</td>
+										</tr>
+										<tr class="align-middle" style="height: 70px;">
+											<th scope="row">2</th>
+											<th>Onyoumi</th>
+											<td colspan="2">${data[key][5]}</td>
+										</tr>
+										<tr class="align-middle" style="height: 70px;">
+											<th scope="row">3</th>
+											<th colspan="2">Contoh Kosakata</th>
+											<td>
+												${data[key][6]}
+											</td>
+										</tr>
+										<tr class="align-middle" style="height: 70px;">
+											<th scope="row">4</th>
+											<th colspan="2">Illustrasi</th>
+											<td>
+												<img src="assets/images/illustrasi/${data[key][7]}" class="w-75" alt="">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+						
+							</div>
+						</div>
+					</div>
+				`);
+			});
+		});
+	</script>
 	<script>
 		var tpj = jQuery;
 		var revapi4;
