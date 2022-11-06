@@ -94,7 +94,7 @@
 			color: aliceblue;
 		}
 		.button-field{
-			margin-top: 150px;
+			margin-top: 100px;
 			
 		}
 	</style>
@@ -179,6 +179,32 @@
 		</section>
 	</main><!-- End #main -->
 
+	<!-- Modal -->
+	<div class="modal fade" id="modalNilai" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h5 class="modal-title" id="modal-title"></h5>
+			<button onclick="$('#modalNilai').modal('hide')" class="btn btn-danger">x</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-4" id="field-reaction">
+						
+					</div>
+					<div class="col-md-8 d-flex align-items-center">
+						<h2 id="field-nilai"></h2>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+		</div>
+	</div>
+
 	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
 			class="bi bi-arrow-up-short"></i></a>
 
@@ -248,94 +274,104 @@
 	<script>
 		(function () {
 			const myQuestions = [{
-					question: '<img src="assets/images/quiz-yoai.jfif" width="200px" class="img-fluid mb-3" alt=""> <br> <h6>Pilihlah kanji yang sesuai dengan gambar diatas</h6>',
+					question: 'kelemahan',
 					answers: {
-						a: "強",
-						b: "重",
-						c: "弱"
-					},
-					correctAnswer: "c"
-				},
-				{
-					question: "Whose face was said to have launched 1000 ships?",
-					answers: {
-						a: "Rowan Atkinson",
-						b: "Barbara Mori",
-						c: "Helen of Troy"
-					},
-					correctAnswer: "c"
-				},
-				{
-					question: "Water boils at 212 degrees on which temperature scale?",
-					answers: {
-						a: "Kelvin",
-						b: "Fahrenheit",
-						c: "Celsius"
+						a: "弱",
+						b: "弱点",
+						c: "強",
+						d: "重"
 					},
 					correctAnswer: "b"
 				},
 				{
-					question: "What is the Italian word for pie?",
+					question: "makanan ringan",
 					answers: {
-						a: "Pie",
-						b: "Lasagna",
-						c: "Pizza"
-					},
-					correctAnswer: "c"
-				},
-				{
-					question: "What was Marilyn Monroe's natural hair colour?",
-					answers: {
-						a: "Ginger",
-						b: "Blue",
-						c: "Brown"
+						a: "軽食",
+						b: "軽",
+						c: "重",
+						d: "食軽"
 					},
 					correctAnswer: "a"
 				},
 				{
-					question: "Which two metals is pewter made from?",
+					question: "Melarang",
 					answers: {
-						a: "Copper and Bronze",
-						b: "Tin and lead.",
-						c: "Zinc and gold"
-					},
-					correctAnswer: "b"
-				},
-				{
-					question: "What takes place in Hong Kong's Happy Valley?",
-					answers: {
-						a: "Monkey racing",
-						b: "Dog racing.",
-						c: "Horse racing"
+						a: "止",
+						b: "正",
+						c: "禁止",
+						d: "止禁"
 					},
 					correctAnswer: "c"
 				},
 				{
-					question: "Which country does the sport of pelato come from?",
+					question: "Pintu keluar",
 					answers: {
-						a: "Portugal",
-						b: "Spain",
-						c: "Italy"
+						a: "入口",
+						b: "出口",
+						c: "早口",
+						d: "口入"
 					},
 					correctAnswer: "b"
 				},
 				{
-					question: "How many sides, in total, would three triangles and three rectangles have?",
+					question: "Hewan",
 					answers: {
-						a: "21",
-						b: "19",
-						c: "12"
+						a: "動物",
+						b: "荷物",
+						c: "動",
+						d: "働物"
 					},
 					correctAnswer: "a"
 				},
 				{
-					question: "Who invented the bikini?",
+					question: "古",
 					answers: {
-						a: "Gianni Versace",
-						b: "Louis Reard.",
-						c: "Dolce Gabbana"
+						a: "ふるす",
+						b: "ふるいい.",
+						c: "ふるい",
+						d: "かるい"
+					},
+					correctAnswer: "c"
+				},
+				{
+					question: "若者",
+					answers: {
+						a: "わかい",
+						b: "はかい",
+						c: "わかもの",
+						d: "わかいもの"
+					},
+					correctAnswer: "c"
+				},
+				{
+					question: "勉強",
+					answers: {
+						a: "つよい",
+						b: "よわい",
+						c: "ベント",
+						d: "べんきょう"
+					},
+					correctAnswer: "d"
+				},
+				{
+					question: "にゅうがく",
+					answers: {
+						a: "入会",
+						b: "入学",
+						c: "入口",
+						d: "入学校"
 					},
 					correctAnswer: "b"
+				},
+				{
+					question: "でぐち",
+					answers: {
+						a: "入口",
+						b: "入学",
+						c: "出口",
+						d: "輸出"
+					},
+					correctAnswer: "c"
 				}
 			];
 
@@ -403,7 +439,17 @@
 
 				// show number of correct answers out of total
 				resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-
+				if(numCorrect < 7){
+					$("#modal-title").html("Sugoi dekai");
+					$("#field-reaction").append(`<img src="assets/images/rem.gif" class="w-100" alt="">`);
+					$("#field-nilai").html(`Nilai kamu ${numCorrect} / ${myQuestions.length}`);
+				}
+				else{
+					$("#modal-title").html("Lebih ditingkatkan lagi ya!!");
+					$("#field-reaction").append(`<img src="assets/images/rem.gif" class="w-100" alt="">`);
+					$("#field-nilai").html(`Nilai kamu ${numCorrect} / ${myQuestions.length}`);
+				}
+				$("#modalNilai").modal('show');
 			}
 
 			function showSlide(n) {
