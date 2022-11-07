@@ -183,9 +183,8 @@
 	<div class="modal fade" id="modalNilai" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
-			<h5 class="modal-title" id="modal-title"></h5>
-			<button onclick="$('#modalNilai').modal('hide')" class="btn btn-danger">x</button>
+			<div class="modal-header text-center">
+				<h5 class="modal-title text-center" id="modal-title"></h5>
 			</div>
 			<div class="modal-body">
 				<div class="row">
@@ -198,8 +197,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="button" class="btn btn-primary">Save changes</button>
+				<button style="float: right;" onclick="$('#modalNilai').modal('hide')" class="btn btn-danger">Close</button>
 			</div>
 		</div>
 		</div>
@@ -440,13 +438,21 @@
 				// show number of correct answers out of total
 				resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
 				if(numCorrect < 7){
-					$("#modal-title").html("Sugoi dekai");
-					$("#field-reaction").append(`<img src="assets/images/rem.gif" class="w-100" alt="">`);
+					$("#modal-title").html("Tetap semangat!!!, kamu pasti bisa");
+					$("#field-reaction").empty();
+					$("#field-reaction").append(`<img src="assets/images/menhera-2.gif" class="w-100" alt="">`);
+					$("#field-nilai").html(`Nilai kamu ${numCorrect} / ${myQuestions.length}`);
+				}
+				else if(numCorrect > 7 && numCorrect < myQuestions.length){
+					$("#modal-title").html("Lebih ditingkatkan lagi ya!!");
+					$("#field-reaction").empty();
+					$("#field-reaction").append(`<img src="assets/images/menhera-1.gif" class="w-100" alt="">`);
 					$("#field-nilai").html(`Nilai kamu ${numCorrect} / ${myQuestions.length}`);
 				}
 				else{
-					$("#modal-title").html("Lebih ditingkatkan lagi ya!!");
-					$("#field-reaction").append(`<img src="assets/images/rem.gif" class="w-100" alt="">`);
+					$("#modal-title").html("Sugoi, Tetap dipertahankan ya!!");
+					$("#field-reaction").empty();
+					$("#field-reaction").append(`<img src="assets/images/menhera-3.gif" class="w-100" alt="">`);
 					$("#field-nilai").html(`Nilai kamu ${numCorrect} / ${myQuestions.length}`);
 				}
 				$("#modalNilai").modal('show');
